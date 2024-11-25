@@ -1,0 +1,40 @@
+<!--
+probar en https://swc.rs/playground
+activando la pestaña de JSX
+
+const button1 = React.createElement('button', {'id':22}, 'Click me');
+
+const buton2 = <button>pulsame</button>;
+
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+    <script type='text/babel'>
+       
+           
+       const a = '<script>alert("esto no es un ataque")<\/script>'
+
+        const $app = document.getElementById("app");
+        const button1 = React.createElement('div', 'null', a)
+        ReactDOM.render(button1, $app);
+
+
+    </script>
+</head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
