@@ -123,22 +123,22 @@ export const routes = [
     component: React.lazy(() => import("../pages/Ejem15")),
   },
   {
-    to: "Ejem15b",
+    to: "Ejem16",
     title: "Comunicación hijo con padre",
     description: "Muestra como se puede comunicar un componente hijo con su padre.",
-    component: React.lazy(() => import("../pages/Ejem15b")),
-  },
-  {
-    to: "Ejem16",
-    title: "Mapeado de elementos",
-    description: "Muestra como react ",
     component: React.lazy(() => import("../pages/Ejem16")),
   },
   {
     to: "Ejem17",
+    title: "Mapeado de elementos",
+    description: "Muestra como react ",
+    component: React.lazy(() => import("../pages/Ejem17")),
+  },
+  {
+    to: "Ejem18",
     title: "Problemas con el estado",
     description: "Muestra como react ",
-    component: React.lazy(() => import("../pages/Ejem17"))
+    component: React.lazy(() => import("../pages/Ejem18"))
   },
   {
     to: null,
@@ -147,34 +147,34 @@ export const routes = [
     component:  React.lazy(()=> import("../pages/Home")),
   }, 
   {
-    to: "Ejem18",
-    title: "Realizar efectos en los componentes con useEffect",
-    description: "Muestra como react ",
-    component: React.lazy(() => import("../pages/Ejem18"))
-  },
-  {
     to: "Ejem19",
-    title: "Desmontar componentes",
+    title: "Realizar efectos en los componentes con useEffect",
     description: "Muestra como react ",
     component: React.lazy(() => import("../pages/Ejem19"))
   },
   {
     to: "Ejem20",
-    title: "Llamadas a apis",
+    title: "Desmontar componentes",
     description: "Muestra como react ",
     component: React.lazy(() => import("../pages/Ejem20"))
   },
   {
     to: "Ejem21",
-    title: "Subscripción a eventos",
+    title: "Llamadas a apis",
     description: "Muestra como react ",
     component: React.lazy(() => import("../pages/Ejem21"))
   },
   {
     to: "Ejem22",
-    title: "Cuidado con los bucles infinitos",
+    title: "Subscripción a eventos",
     description: "Muestra como react ",
     component: React.lazy(() => import("../pages/Ejem22"))
+  },
+  {
+    to: "Ejem23",
+    title: "Cuidado con los bucles infinitos",
+    description: "Muestra como react ",
+    component: React.lazy(() => import("../pages/Ejem23"))
   },
   {
     to: null,
@@ -183,22 +183,22 @@ export const routes = [
     component:  React.lazy(()=> import("../pages/Home")),
   }, 
   {
-    to: "Ejem23",
+    to: "Ejem24",
     title: "Formularios simples",
     description: "Muestra como se crean formularios simples en react.",
-    component: React.lazy(() => import("../pages/Ejem23"))
-  },
-  {
-    to: "Ejem24",
-    title: "Formularios multiples campos",
-    description: "Muestra se crean formularios con multiples campos en un solo estado",
     component: React.lazy(() => import("../pages/Ejem24"))
   },
   {
     to: "Ejem25",
+    title: "Formularios multiples campos",
+    description: "Muestra se crean formularios con multiples campos en un solo estado",
+    component: React.lazy(() => import("../pages/Ejem25"))
+  },
+  {
+    to: "Ejem26",
     title: "Formularios (validación)",
     description: "Muestra como gestionar la validación de formularios",
-    component: React.lazy(() => import("../pages/Ejem25"))
+    component: React.lazy(() => import("../pages/Ejem26"))
   },
   {
     to: null,
@@ -207,9 +207,15 @@ export const routes = [
     component:  React.lazy(()=> import("../pages/Home")),
   }, 
   {
-    to: "Ejem26",
+    to: "Ejem27",
     title: "Use hooks",
-    description: "Simplificando el codigo con usehook",
-    component: React.lazy(() => import("../pages/Ejem26"))
+    description: "Creando hooks personalizados",
+    component: React.lazy(() => import("../pages/Ejem27"))
+  },
+  {
+    to: "Ejem27",
+    title: "Use hooks en formularios",
+    description: "Simplificando el codigo del formulario con usehook",
+    component: React.lazy(() => import("../pages/Ejem28"))
   },
 ];

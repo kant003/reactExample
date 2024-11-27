@@ -1,12 +1,24 @@
 /*
 
 */
-
-
-const nombres = ['naranja', 'limon', 'pera', 'manzana']
+interface ComponenteHijoProps {
+  sendData: (data: string) => void;
+}
+function ComponenteHijo({ sendData }: ComponenteHijoProps) {
+  const sendDataToParent = () => {
+    sendData("Hola desde el hijo");
+  };
+  
+  return <button onClick={sendDataToParent}>Enviar al Padre</button>;
+}
 
 export default function Ejem16() {
-  return <ul>
-       {   nombres.map(fruta=><li key={fruta}>{fruta}</li>)   }
-    </ul>
+  const handleChildData = (data: string) => {
+    console.log("Datos recibidos del hijo:", data);
+  };
+
+  return <>
+    <ComponenteHijo sendData={handleChildData} />
+    <ComponenteHijo sendData={handleChildData} />
+  </>
 }

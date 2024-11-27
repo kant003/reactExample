@@ -4,33 +4,22 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 
 export default function Ejem24() {
-  const [formulario, setFormulario] = useState({
-    nombre: "",
-    correo: "",
-  });
+  const [nombre, setNombre] = useState("");
 
   const manejarCambio = (e:ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormulario({
-      ...formulario,
-      [name]: value,
-    });
+    setNombre(e.target.value);
   };
 
   const manejarEnvio = (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(`Datos enviados:\nNombre: ${formulario.nombre}\nCorreo: ${formulario.correo}`);
+    alert(`El nombre enviado es: ${nombre}`);
   };
 
   return (
-    <form onSubmit={manejarEnvio} className="flex flex-col gap-3">
+    <form onSubmit={manejarEnvio}>
       <label>
         Nombre:
-        <input type="text" name="nombre" value={formulario.nombre} onChange={manejarCambio} />
-      </label>
-      <label>
-        Correo:
-        <input type="email" name="correo" value={formulario.correo} onChange={manejarCambio} />
+        <input type="text" value={nombre} onChange={manejarCambio} />
       </label>
       <button type="submit">Enviar</button>
     </form>

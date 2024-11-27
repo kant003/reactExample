@@ -4,12 +4,17 @@
 import { useEffect, useState } from "react";
 
 export default function Ejem22() {
-  const [contador, setContador] = useState(0);
+  const [tecla, setTecla] = useState("");
 
   useEffect(() => {
-    setContador(contador + 1); // Esto causará un bucle infinito
-    console.log("Contador: ", contador);
-  });
+    const manejarTecla = (e: KeyboardEvent) => setTecla(e.key);
 
-  return <div>{contador}</div>
+    window.addEventListener("keydown", manejarTecla);
+
+    return () => {
+      window.removeEventListener("keydown", manejarTecla); // Eliminamos el evento
+    };
+  }, []);
+
+  return <p>Tecla presionada: {tecla}</p>;
 }

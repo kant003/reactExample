@@ -1,49 +1,48 @@
 /*
 */
 
-
 import { useState, ChangeEvent, FormEvent } from "react";
-interface FormValues {
-  [key: string]: string; // Permite que los valores sean cadenas dinámicas
-}
-
-function useForm<T extends FormValues>(initialValues: T) {
-  const [values, setValues] = useState(initialValues);
-
-  const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
-  };
-
-  const reset = () => setValues(initialValues);
-
-  return { values, handleChange, reset };
-}
-
-
 
 export default function Ejem26() {
-  const { values, handleChange, reset } = useForm({
+  const [formulario, setFormulario] = useState({
     nombre: "",
     correo: "",
   });
+  const [error, setError] = useState("");
+
+  const manejarCambio = (e:ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormulario({
+      ...formulario,
+      [name]: value,
+    });
+    setError(""); // Limpiar errores al escribir
+  };
 
   const manejarEnvio = (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert(`Nombre: ${values.nombre}\nCorreo: ${values.correo}`);
-    reset();
+    if (!formulario.nombre || !formulario.correo) {
+      setError("Todos los campos son obligatorios");
+      return;
+    }
+    if (!formulario.correo.includes("@")) {
+      setError("El correo debe ser válido");
+      return;
+    }
+    alert("Formulario enviado correctamente");
   };
 
   return (
     <form onSubmit={manejarEnvio}>
       <label>
         Nombre:
-        <input type="text" name="nombre" value={values.nombre} onChange={handleChange} />
+        <input type="text" name="nombre" value={formulario.nombre} onChange={manejarCambio} />
       </label>
       <label>
         Correo:
-        <input type="email" name="correo" value={values.correo} onChange={handleChange} />
+        <input type="email" name="correo" value={formulario.correo} onChange={manejarCambio} />
       </label>
+      {error && <p style={{ color: "red" }}>{error}</p>}
       <button type="submit">Enviar</button>
     </form>
   );

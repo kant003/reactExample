@@ -22,6 +22,7 @@ function ContadorHijo() {
         >
           Contador hijo: {count}
         </button>
+        
     </>
   );
 }

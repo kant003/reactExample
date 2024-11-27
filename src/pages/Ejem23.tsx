@@ -1,27 +1,15 @@
 /*
 */
 
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useEffect, useState } from "react";
 
 export default function Ejem23() {
-  const [nombre, setNombre] = useState("");
+  const [contador, setContador] = useState(0);
 
-  const manejarCambio = (e:ChangeEvent<HTMLInputElement>) => {
-    setNombre(e.target.value);
-  };
+  useEffect(() => {
+    setContador(contador + 1); // Esto causará un bucle infinito
+    console.log("Contador: ", contador);
+  });
 
-  const manejarEnvio = (e:FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    alert(`El nombre enviado es: ${nombre}`);
-  };
-
-  return (
-    <form onSubmit={manejarEnvio}>
-      <label>
-        Nombre:
-        <input type="text" value={nombre} onChange={manejarCambio} />
-      </label>
-      <button type="submit">Enviar</button>
-    </form>
-  );
+  return <div>{contador}</div>
 }
