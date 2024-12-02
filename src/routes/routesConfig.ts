@@ -165,6 +165,12 @@ export const routes = [
     component: React.lazy(() => import("../pages/Ejem21"))
   },
   {
+    to: "Ejem21/:nombre",
+    title: "Llamadas a apis",
+    description: "Muestra como react ",
+    component: React.lazy(() => import("../pages/Ejem21_detail"))
+  },
+  {
     to: "Ejem22",
     title: "Subscripción a eventos",
     description: "Muestra como react ",
@@ -213,9 +219,27 @@ export const routes = [
     component: React.lazy(() => import("../pages/Ejem27"))
   },
   {
-    to: "Ejem27",
+    to: "Ejem28",
     title: "Use hooks en formularios",
     description: "Simplificando el codigo del formulario con usehook",
     component: React.lazy(() => import("../pages/Ejem28"))
+  },
+  {
+    to: "Ejem29",
+    title: "Rutas protegidas",
+    description: "Redirigindo a una ruta protegida",
+    component: React.lazy(() => import("../pages/Ejem29"))
+  },
+  {
+    to: null,
+    title: "Contexto",
+    description: "",
+    component:  React.lazy(()=> import("../pages/Home")),
+  }, 
+  {
+    to: "Ejem30",
+    title: "useContext",
+    description: "uso de contexto",
+    component: React.lazy(() => import("../pages/Ejem30"))
   },
 ];
